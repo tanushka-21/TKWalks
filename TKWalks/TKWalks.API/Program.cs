@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TKWalks.API.Data;
+using TKWalks.API.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,6 +14,8 @@ builder.Services.AddDbContext<TKWalksDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("TKWalks"));
 });
+builder.Services.AddScoped<IRegionRepository, RegionRepository>();
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
 
 var app = builder.Build();
 

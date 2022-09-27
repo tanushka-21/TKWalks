@@ -116,7 +116,7 @@ namespace TKWalks.API.Controllers
         public async Task<IActionResult> UpdateRegionAsync([FromRoute] Guid id, [FromBody] Models.DTO.UpdateRegionRequest updateRegionRequest)
         {
             //convert dto to domain
-            var region = new Models.Domain.Region()
+            var region = new Models.Domain.Region
             {
                 Code = updateRegionRequest.Code,
                 Area = updateRegionRequest.Area,
